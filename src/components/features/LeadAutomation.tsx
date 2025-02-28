@@ -1,11 +1,10 @@
-
 import React, { useState } from "react";
 import { Search, Briefcase, Hash } from "lucide-react";
 import CardContainer from "@/components/layout/CardContainer";
 import FormInput from "@/components/ui/FormInput";
 import FormSelect from "@/components/ui/FormSelect";
 import Button from "@/components/ui/Button";
-import { toast } from "@/components/ui/sonner";
+import { toast } from "sonner";
 
 const workspaceOptions = [
   { value: "sales", label: "Sales" },
@@ -46,7 +45,6 @@ const LeadAutomation: React.FC = () => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
     
-    // Clear error when field is edited
     if (errors[name as keyof FormData]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
@@ -87,14 +85,12 @@ const LeadAutomation: React.FC = () => {
     setIsSubmitting(true);
     
     try {
-      // Simulating API call
       await new Promise((resolve) => setTimeout(resolve, 1500));
       
       toast.success("Lead automation started successfully", {
         description: "You will be notified once the process completes."
       });
       
-      // Reset form after successful submission
       setFormData({
         searchUrl: "",
         campaignId: "",

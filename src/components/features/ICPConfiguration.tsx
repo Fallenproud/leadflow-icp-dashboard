@@ -1,11 +1,10 @@
-
 import React, { useState } from "react";
 import { Building, DollarSign, MapPin, Users } from "lucide-react";
 import CardContainer from "@/components/layout/CardContainer";
 import FormInput from "@/components/ui/FormInput";
 import FormSelect from "@/components/ui/FormSelect";
 import Button from "@/components/ui/Button";
-import { toast } from "@/components/ui/sonner";
+import { toast } from "sonner";
 
 const companySizeOptions = [
   { value: "1-10", label: "1-10 employees" },
@@ -50,7 +49,6 @@ const ICPConfiguration: React.FC = () => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
     
-    // Clear error when field is edited
     if (errors[name as keyof FormData]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
@@ -93,14 +91,12 @@ const ICPConfiguration: React.FC = () => {
     setIsSubmitting(true);
     
     try {
-      // Simulating API call
       await new Promise((resolve) => setTimeout(resolve, 1500));
       
       toast.success("ICP search started successfully", {
         description: "Your search is in progress. Results will be available soon."
       });
       
-      // Reset form after successful submission
       setFormData({
         targetIndustries: "",
         companySize: "",
