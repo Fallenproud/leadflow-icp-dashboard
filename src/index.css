@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -96,6 +97,65 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-[#0A192F] text-white;
   }
+  
+  input, select {
+    @apply bg-[#243B67] border border-[#3A5380] rounded-md px-4 py-2 w-full text-white;
+    @apply focus:outline-none focus:ring-2 focus:ring-[#2DD4BF] focus:border-transparent;
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  label {
+    @apply text-sm font-medium mb-1 block;
+  }
+  
+  .form-group {
+    @apply mb-4;
+  }
+}
+
+.dashboard-container {
+  @apply max-w-7xl mx-auto p-6;
+  @apply animate-in fade-in duration-700;
+}
+
+.card-container {
+  @apply bg-[#1B2A4A] rounded-xl p-6 shadow-lg;
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.required:after {
+  content: " *";
+  color: #2DD4BF;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+.slide-up {
+  animation: slide-up 0.5s ease-out forwards;
+}
+
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
 }
