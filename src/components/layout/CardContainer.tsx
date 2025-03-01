@@ -3,7 +3,6 @@
 
 import React from "react";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 
 interface CardContainerProps {
   className?: string;
@@ -32,12 +31,10 @@ const CardContainer: React.FC<CardContainerProps> = ({
     )}>
       {imageUrl && (
         <div className="absolute right-0 top-0 h-32 w-32 opacity-15 pointer-events-none">
-          <Image 
+          <img 
             src={imageUrl}
             alt={imageAlt}
-            width={128}
-            height={128}
-            className="object-cover"
+            className="object-cover w-full h-full"
           />
         </div>
       )}
