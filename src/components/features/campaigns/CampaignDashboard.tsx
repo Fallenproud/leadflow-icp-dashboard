@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from "react";
-import { BarChart3, Plus, Sliders, Settings } from "lucide-react";
+import { BarChart3, Plus, Sliders, Settings, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Campaign } from "./types";
 import { getCampaigns, initializeCampaignsIfEmpty } from "@/services/campaignService";
@@ -29,8 +29,17 @@ const CampaignDashboard: React.FC = () => {
 
   return (
     <div className="space-y-6 animate-in">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <h2 className="text-2xl font-bold text-white">Campaign Management</h2>
+      <div className="flex flex-col sm:flex-row items-start justify-between gap-4 mb-4">
+        <div>
+          <Link
+            to="/lead-automation-and-icp-configuration"
+            className="inline-flex items-center text-[#94A3B8] hover:text-white transition-colors mb-2"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            <span>Back to Dashboard</span>
+          </Link>
+          <h2 className="text-2xl font-bold text-white">Campaign Management</h2>
+        </div>
         <Link
           to="/lead-automation-and-icp-configuration/campaigns/new"
           className="inline-flex items-center justify-center bg-[#2DD4BF] text-[#0A192F] px-4 py-2 rounded-md hover:bg-[#25C4B3] transition-all"

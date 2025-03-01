@@ -13,6 +13,7 @@ import ApiDocumentation from "./pages/docs/ApiDocumentation";
 import DeveloperSupport from "./pages/docs/DeveloperSupport";
 import ApiKeyManagement from "./pages/ApiKeyManagement";
 import CampaignManagement from "./pages/CampaignManagement";
+import TemplateManagement from "./pages/TemplateManagement";
 
 const App: React.FC = () => {
   return (
@@ -29,6 +30,7 @@ const App: React.FC = () => {
         <Route path="/docs/developer-support" element={<DeveloperSupport />} />
         <Route path="/api-key-management" element={<ApiKeyManagement />} />
         <Route path="/lead-automation-and-icp-configuration/campaigns/*" element={<CampaignManagement />} />
+        <Route path="/lead-automation-and-icp-configuration/templates/*" element={<TemplateManagement />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
