@@ -11,6 +11,7 @@ import LeadAutomation from "./pages/docs/LeadAutomation";
 import ApiReference from "./pages/docs/ApiReference";
 import ApiDocumentation from "./pages/docs/ApiDocumentation";
 import DeveloperSupport from "./pages/docs/DeveloperSupport";
+import ApiKeyManagement from "./pages/ApiKeyManagement";
 
 const App: React.FC = () => {
   return (
@@ -25,6 +26,7 @@ const App: React.FC = () => {
         <Route path="/docs/api-reference" element={<ApiReference />} />
         <Route path="/docs/api-documentation" element={<ApiDocumentation />} />
         <Route path="/docs/developer-support" element={<DeveloperSupport />} />
+        <Route path="/api-key-management" element={<ApiKeyManagement />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

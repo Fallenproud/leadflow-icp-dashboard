@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Info, ArrowLeft, Code } from "lucide-react";
+import { Info, ArrowLeft, Code, Key } from "lucide-react";
 import DashboardContainer from "@/components/layout/DashboardContainer";
 import { Link } from "react-router-dom";
 
@@ -28,6 +28,16 @@ const ApiReference: React.FC = () => {
               <p className="text-[#94A3B8] mb-4">
                 Our RESTful API provides programmatic access to all platform features. You can integrate our lead generation and ICP configuration capabilities into your applications or workflows.
               </p>
+              
+              <div className="mb-6">
+                <Link 
+                  to="/api-key-management" 
+                  className="inline-flex items-center gap-2 bg-[#243B67] text-white px-4 py-2 rounded hover:bg-[#3A5380] transition-colors mb-6"
+                >
+                  <Key className="w-4 h-4" />
+                  <span>Manage API Keys</span>
+                </Link>
+              </div>
               
               <h4 className="text-white text-lg font-semibold mt-6 mb-3">REST API Endpoints</h4>
               <p className="text-[#94A3B8] mb-4">
@@ -83,10 +93,10 @@ const ApiReference: React.FC = () => {
                 All API requests require authentication using API keys. To obtain an API key:
               </p>
               <ol className="space-y-2 text-[#94A3B8] list-decimal pl-5">
-                <li>Navigate to your account settings</li>
-                <li>Select the "API Keys" tab</li>
+                <li>Navigate to the <Link to="/api-key-management" className="text-[#2DD4BF] hover:underline">API Key Management</Link> page</li>
                 <li>Click "Generate New Key"</li>
-                <li>Set permissions and expiration if needed</li>
+                <li>Enter a name for your key</li>
+                <li>Copy and securely store your new API key</li>
               </ol>
               <div className="bg-[#243B67] rounded p-4 mt-4 mb-6">
                 <p className="text-[#94A3B8] text-sm">Include your API key in the Authorization header:</p>
