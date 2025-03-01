@@ -1,7 +1,7 @@
 
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { FormData, ErrorState } from "./types";
 import IndustryField from "./form-fields/IndustryField";
 import CompanySizeField from "./form-fields/CompanySizeField";
@@ -9,6 +9,7 @@ import RevenueField from "./form-fields/RevenueField";
 import LocationsField from "./form-fields/LocationsField";
 import JobTitlesField from "./form-fields/JobTitlesField";
 import { Button } from "@/components/ui/button";
+import { useConfiguration } from "@/contexts/ConfigurationContext";
 
 interface ICPFormProps {
   formData: FormData;
@@ -25,6 +26,13 @@ const ICPForm: React.FC<ICPFormProps> = ({
   handleChange,
   handleSubmit,
 }) => {
+  const { updateICPData } = useConfiguration();
+  
+  // Update the context whenever formData changes
+  useEffect(() => {
+    updateICPData(formData);
+  }, [formData, updateICPData]);
+
   return (
     <form onSubmit={handleSubmit}>
       <IndustryField

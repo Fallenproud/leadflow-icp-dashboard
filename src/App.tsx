@@ -14,26 +14,31 @@ import DeveloperSupport from "./pages/docs/DeveloperSupport";
 import ApiKeyManagement from "./pages/ApiKeyManagement";
 import CampaignManagement from "./pages/CampaignManagement";
 import TemplateManagement from "./pages/TemplateManagement";
+import { ConfigurationProvider } from "./contexts/ConfigurationContext";
+import { Toaster } from "sonner";
 
 const App: React.FC = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/lead-automation-and-icp-configuration" element={<LeadAutomationAndIcpConfiguration />} />
-        <Route path="/documentation" element={<Documentation />} />
-        <Route path="/docs/getting-started" element={<GettingStarted />} />
-        <Route path="/docs/icp-configuration" element={<ICPConfiguration />} />
-        <Route path="/docs/lead-automation" element={<LeadAutomation />} />
-        <Route path="/docs/api-reference" element={<ApiReference />} />
-        <Route path="/docs/api-documentation" element={<ApiDocumentation />} />
-        <Route path="/docs/developer-support" element={<DeveloperSupport />} />
-        <Route path="/api-key-management" element={<ApiKeyManagement />} />
-        <Route path="/lead-automation-and-icp-configuration/campaigns/*" element={<CampaignManagement />} />
-        <Route path="/lead-automation-and-icp-configuration/templates/*" element={<TemplateManagement />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Router>
+    <ConfigurationProvider>
+      <Router>
+        <Toaster position="top-right" richColors />
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/lead-automation-and-icp-configuration" element={<LeadAutomationAndIcpConfiguration />} />
+          <Route path="/documentation" element={<Documentation />} />
+          <Route path="/docs/getting-started" element={<GettingStarted />} />
+          <Route path="/docs/icp-configuration" element={<ICPConfiguration />} />
+          <Route path="/docs/lead-automation" element={<LeadAutomation />} />
+          <Route path="/docs/api-reference" element={<ApiReference />} />
+          <Route path="/docs/api-documentation" element={<ApiDocumentation />} />
+          <Route path="/docs/developer-support" element={<DeveloperSupport />} />
+          <Route path="/api-key-management" element={<ApiKeyManagement />} />
+          <Route path="/lead-automation-and-icp-configuration/campaigns/*" element={<CampaignManagement />} />
+          <Route path="/lead-automation-and-icp-configuration/templates/*" element={<TemplateManagement />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
+    </ConfigurationProvider>
   );
 };
 

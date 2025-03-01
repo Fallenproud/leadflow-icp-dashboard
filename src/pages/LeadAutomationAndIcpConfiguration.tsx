@@ -2,20 +2,33 @@
 "use client";
 
 import React, { useState } from "react";
-import { Sliders, BarChart3, ExternalLink, Save, ListChecks, FileText } from "lucide-react";
+import { Sliders, BarChart3, ExternalLink, Save, ListChecks, FileText, CheckCircle2 } from "lucide-react";
 import DashboardContainer from "@/components/layout/DashboardContainer";
 import LeadAutomation from "@/components/features/LeadAutomation";
 import ICPConfiguration from "@/components/features/ICPConfiguration";
 import { Link } from "react-router-dom";
+import { useConfiguration } from "@/contexts/ConfigurationContext";
+import { format } from "date-fns";
 
 const LeadAutomationAndIcpConfiguration: React.FC = () => {
   const [activeSection, setActiveSection] = useState<'icp' | 'lead'>('icp');
+  const { saveAllConfiguration, isConfigSaving, lastSaved } = useConfiguration();
   
   const scrollToSection = (sectionId: string, section: 'icp' | 'lead') => {
     setActiveSection(section);
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const formatLastSaved = () => {
+    if (!lastSaved) return null;
+    try {
+      const date = new Date(lastSaved);
+      return format(date, "MMM d, yyyy 'at' h:mm a");
+    } catch (e) {
+      return null;
     }
   };
 
@@ -79,16 +92,32 @@ const LeadAutomationAndIcpConfiguration: React.FC = () => {
           
           <div className="mt-auto pt-8">
             <button 
-              onClick={() => {
-                // Save configuration logic would go here
-                // For now, just show a notification in the console
-                console.log("Configuration saved!");
-              }}
-              className="w-full flex items-center justify-center p-3 bg-[#2DD4BF] text-[#0A192F] rounded-md hover:bg-[#25C4B3] transition-colors font-medium"
+              onClick={saveAllConfiguration}
+              disabled={isConfigSaving}
+              className="w-full flex items-center justify-center p-3 bg-[#2DD4BF] text-[#0A192F] rounded-md hover:bg-[#25C4B3] disabled:opacity-70 disabled:cursor-not-allowed transition-colors font-medium"
             >
-              <Save className="w-5 h-5 mr-2" />
-              <span>Save Configuration</span>
+              {isConfigSaving ? (
+                <>
+                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-[#0A192F]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  <span>Saving...</span>
+                </>
+              ) : (
+                <>
+                  <Save className="w-5 h-5 mr-2" />
+                  <span>Save Configuration</span>
+                </>
+              )}
             </button>
+            
+            {lastSaved && (
+              <div className="mt-3 flex items-center justify-center text-xs text-[#94A3B8]">
+                <CheckCircle2 className="w-3 h-3 mr-1 text-[#2DD4BF]" />
+                <span>Last saved: {formatLastSaved()}</span>
+              </div>
+            )}
           </div>
         </div>
       </aside>
@@ -163,13 +192,18 @@ const LeadAutomationAndIcpConfiguration: React.FC = () => {
           {/* Mobile save button */}
           <div className="fixed bottom-6 right-6 lg:hidden">
             <button 
-              onClick={() => {
-                // Save configuration logic would go here
-                console.log("Configuration saved (mobile)!");
-              }}
-              className="flex items-center justify-center p-3 bg-[#2DD4BF] text-[#0A192F] rounded-full shadow-lg hover:bg-[#25C4B3] transition-colors"
+              onClick={saveAllConfiguration}
+              disabled={isConfigSaving}
+              className="flex items-center justify-center p-3 bg-[#2DD4BF] text-[#0A192F] rounded-full shadow-lg hover:bg-[#25C4B3] disabled:opacity-70 disabled:cursor-not-allowed transition-colors"
             >
-              <Save className="w-6 h-6" />
+              {isConfigSaving ? (
+                <svg className="animate-spin h-6 w-6 text-[#0A192F]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+              ) : (
+                <Save className="w-6 h-6" />
+              )}
             </button>
           </div>
         </DashboardContainer>
