@@ -1,6 +1,6 @@
 
 import React from "react";
-import { HelpCircle, ArrowLeft } from "lucide-react";
+import { HelpCircle, ArrowLeft, BarChart3 } from "lucide-react";
 import DashboardContainer from "@/components/layout/DashboardContainer";
 import { Link } from "react-router-dom";
 
@@ -42,6 +42,20 @@ const LeadAutomation: React.FC = () => {
                 <li>Configure follow-up rules and triggers</li>
               </ol>
               
+              <div className="mt-4 p-4 bg-[#243B67] rounded-lg border border-[#3A5380]">
+                <h5 className="text-white font-medium mb-2">New Feature: Campaign Management</h5>
+                <p className="text-[#94A3B8] mb-3">
+                  Try our new campaign management interface to create, track, and optimize your lead generation campaigns all in one place.
+                </p>
+                <Link
+                  to="/lead-automation-and-icp-configuration/campaigns"
+                  className="inline-flex items-center text-[#2DD4BF] hover:text-[#25C4B3]"
+                >
+                  <BarChart3 className="w-4 h-4 mr-2" />
+                  <span>Go to Campaign Management</span>
+                </Link>
+              </div>
+              
               <h4 className="text-white text-lg font-semibold mt-6 mb-3">Lead Scoring</h4>
               <p className="text-[#94A3B8] mb-4">
                 Our platform uses a sophisticated lead scoring system to prioritize prospects:
@@ -71,12 +85,13 @@ const LeadAutomation: React.FC = () => {
             <h3 className="text-xl font-bold text-white mb-4">Ready to automate your lead generation?</h3>
             <p className="text-[#94A3B8] mb-6">Set up your first campaign and start generating qualified leads that match your ICP.</p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/lead-automation-and-icp-configuration" className="flex items-center justify-center p-3 bg-[#2DD4BF] text-[#0A192F] rounded-md hover:bg-[#25C4B3] transition-colors font-medium">
-                <span>Go to Lead Automation</span>
+              <Link to="/lead-automation-and-icp-configuration/campaigns" className="flex items-center justify-center p-3 bg-[#2DD4BF] text-[#0A192F] rounded-md hover:bg-[#25C4B3] transition-colors font-medium">
+                <BarChart3 className="w-4 h-4 mr-2" />
+                <span>Manage Campaigns</span>
               </Link>
-              <button className="flex items-center justify-center p-3 bg-transparent text-white border border-[#3A5380] rounded-md hover:bg-[#1B2A4A] transition-colors font-medium">
-                <span>View Demo Video</span>
-              </button>
+              <Link to="/lead-automation-and-icp-configuration" className="flex items-center justify-center p-3 bg-transparent text-white border border-[#3A5380] rounded-md hover:bg-[#1B2A4A] transition-colors font-medium">
+                <span>Configure ICP</span>
+              </Link>
             </div>
           </div>
         </DashboardContainer>

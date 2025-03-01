@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Sliders, BarChart3, ExternalLink, Save } from "lucide-react";
+import { Sliders, BarChart3, ExternalLink, Save, ListChecks } from "lucide-react";
 import DashboardContainer from "@/components/layout/DashboardContainer";
 import LeadAutomation from "@/components/features/LeadAutomation";
 import ICPConfiguration from "@/components/features/ICPConfiguration";
@@ -47,6 +47,14 @@ const LeadAutomationAndIcpConfiguration: React.FC = () => {
                 <BarChart3 className={`w-5 h-5 mr-3 ${activeSection === 'lead' ? 'text-[#2DD4BF]' : 'text-[#94A3B8]'}`} />
                 <span>Lead Automation</span>
               </button>
+              
+              <Link 
+                to="/lead-automation-and-icp-configuration/campaigns"
+                className="flex w-full items-center p-3 rounded-md bg-transparent text-white hover:bg-[#243B67] transition-colors"
+              >
+                <ListChecks className="w-5 h-5 mr-3 text-[#94A3B8]" />
+                <span>Campaign Management</span>
+              </Link>
             </nav>
           </div>
           
@@ -95,6 +103,28 @@ const LeadAutomationAndIcpConfiguration: React.FC = () => {
             
             <section id="lead-automation" className={activeSection === 'lead' ? 'ring-1 ring-[#3A5380] rounded-lg p-1' : ''}>
               <LeadAutomation />
+            </section>
+            
+            <section className="bg-[#1B2A4A] rounded-lg border border-[#3A5380] p-6">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-xl font-semibold text-white">Campaign Management</h2>
+                <Link
+                  to="/lead-automation-and-icp-configuration/campaigns"
+                  className="text-[#2DD4BF] hover:text-[#25C4B3] text-sm"
+                >
+                  View All
+                </Link>
+              </div>
+              <p className="text-[#94A3B8] mb-4">
+                Create and manage your lead generation campaigns with our comprehensive campaign management system.
+              </p>
+              <Link
+                to="/lead-automation-and-icp-configuration/campaigns"
+                className="inline-flex items-center justify-center p-3 bg-[#243B67] text-white rounded-md hover:bg-[#3A5380] transition-colors mt-2"
+              >
+                <BarChart3 className="w-4 h-4 mr-2" />
+                <span>Go to Campaign Management</span>
+              </Link>
             </section>
           </div>
           
