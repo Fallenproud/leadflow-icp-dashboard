@@ -9,6 +9,8 @@ import GettingStarted from "./pages/docs/GettingStarted";
 import ICPConfiguration from "./pages/docs/ICPConfiguration";
 import LeadAutomation from "./pages/docs/LeadAutomation";
 import ApiReference from "./pages/docs/ApiReference";
+import ApiDocumentation from "./pages/docs/ApiDocumentation";
+import DeveloperSupport from "./pages/docs/DeveloperSupport";
 
 const App: React.FC = () => {
   return (
@@ -21,6 +23,8 @@ const App: React.FC = () => {
         <Route path="/docs/icp-configuration" element={<ICPConfiguration />} />
         <Route path="/docs/lead-automation" element={<LeadAutomation />} />
         <Route path="/docs/api-reference" element={<ApiReference />} />
+        <Route path="/docs/api-documentation" element={<ApiDocumentation />} />
+        <Route path="/docs/developer-support" element={<DeveloperSupport />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

@@ -115,13 +115,13 @@ const ApiReference: React.FC = () => {
             <h3 className="text-xl font-bold text-white mb-4">Need technical assistance?</h3>
             <p className="text-[#94A3B8] mb-6">Our developer support team is available to help with API integration questions.</p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="flex items-center justify-center p-3 bg-[#2DD4BF] text-[#0A192F] rounded-md hover:bg-[#25C4B3] transition-colors font-medium">
+              <Link to="/docs/api-documentation" className="flex items-center justify-center p-3 bg-[#2DD4BF] text-[#0A192F] rounded-md hover:bg-[#25C4B3] transition-colors font-medium">
                 <Code className="w-4 h-4 mr-2" />
                 <span>View API Documentation</span>
-              </button>
-              <button className="flex items-center justify-center p-3 bg-transparent text-white border border-[#3A5380] rounded-md hover:bg-[#1B2A4A] transition-colors font-medium">
+              </Link>
+              <Link to="/docs/developer-support" className="flex items-center justify-center p-3 bg-transparent text-white border border-[#3A5380] rounded-md hover:bg-[#1B2A4A] transition-colors font-medium">
                 <span>Contact Developer Support</span>
-              </button>
+              </Link>
             </div>
           </div>
         </DashboardContainer>
