@@ -261,7 +261,7 @@ const CampaignForm: React.FC<CampaignFormProps> = ({
               placeholder="Enter your message template. Use {{firstName}}, {{companyName}}, etc. for personalization."
               className={`bg-[#243B67] border border-[#3A5380] rounded-md px-4 py-2 w-full text-white min-h-[200px] ${errors.template ? "border-red-500" : ""}`}
             />
-            <p className="text-[#94A3B8] text-xs mt-1">Use {{firstName}}, {{companyName}}, etc. for personalization</p>
+            <p className="text-[#94A3B8] text-xs mt-1">Use {"{{firstName}}"}, {"{{companyName}}"}, etc. for personalization</p>
             {errors.template && <p className="text-red-500 text-xs mt-1">{errors.template}</p>}
           </div>
           
