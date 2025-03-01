@@ -4,7 +4,7 @@ import { Search, Briefcase, Hash } from "lucide-react";
 import CardContainer from "@/components/layout/CardContainer";
 import FormInput from "@/components/ui/FormInput";
 import FormSelect from "@/components/ui/FormSelect";
-import Button from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
 const workspaceOptions = [

@@ -12,11 +12,14 @@ export const buttonVariants = cva(
         secondary: "bg-[#243B67] text-white hover:bg-[#2D4A80] shadow-sm",
         outline: "bg-transparent border border-[#3A5380] text-white hover:bg-[#243B67]/10",
         ghost: "bg-transparent text-white hover:bg-[#243B67]/10",
+        icon: "bg-transparent p-2 text-white hover:bg-[#243B67]/10 rounded-full", // Adding icon variant for pagination
       },
       size: {
         sm: "px-3 py-1.5 text-sm",
         md: "px-4 py-2",
         lg: "px-6 py-3 text-lg",
+        default: "px-4 py-2", // Adding default size for pagination
+        icon: "p-2", // Adding icon size for pagination
       },
     },
     defaultVariants: {
@@ -27,8 +30,8 @@ export const buttonVariants = cva(
 );
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "outline" | "ghost";
-  size?: "sm" | "md" | "lg";
+  variant?: "primary" | "secondary" | "outline" | "ghost" | "icon";
+  size?: "sm" | "md" | "lg" | "default" | "icon";
   children: React.ReactNode;
 }
 
@@ -51,4 +54,5 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
 Button.displayName = "Button";
 
+export { Button };
 export default Button;
