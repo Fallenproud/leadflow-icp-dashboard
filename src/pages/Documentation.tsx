@@ -28,7 +28,7 @@ const Documentation: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-[#1B2A4A] border border-[#3A5380] rounded-lg p-6 hover:shadow-lg transition-shadow animate-fade-in">
+            <Link to="/docs/getting-started" className="bg-[#1B2A4A] border border-[#3A5380] rounded-lg p-6 hover:shadow-lg transition-shadow animate-fade-in hover:border-[#2DD4BF]">
               <div className="flex items-start mb-4">
                 <div className="w-12 h-12 bg-[#243B67] rounded-full flex items-center justify-center mr-4">
                   <BookOpen className="w-6 h-6 text-[#2DD4BF]" />
@@ -41,20 +41,20 @@ const Documentation: React.FC = () => {
               <ul className="space-y-3 text-white">
                 <li className="flex items-center">
                   <span className="w-1.5 h-1.5 bg-[#2DD4BF] rounded-full mr-2"></span>
-                  <a href="#" className="hover:text-[#2DD4BF] transition-colors">Platform overview</a>
+                  <span className="hover:text-[#2DD4BF] transition-colors">Platform overview</span>
                 </li>
                 <li className="flex items-center">
                   <span className="w-1.5 h-1.5 bg-[#2DD4BF] rounded-full mr-2"></span>
-                  <a href="#" className="hover:text-[#2DD4BF] transition-colors">Initial configuration</a>
+                  <span className="hover:text-[#2DD4BF] transition-colors">Initial configuration</span>
                 </li>
                 <li className="flex items-center">
                   <span className="w-1.5 h-1.5 bg-[#2DD4BF] rounded-full mr-2"></span>
-                  <a href="#" className="hover:text-[#2DD4BF] transition-colors">Best practices</a>
+                  <span className="hover:text-[#2DD4BF] transition-colors">Best practices</span>
                 </li>
               </ul>
-            </div>
+            </Link>
 
-            <div className="bg-[#1B2A4A] border border-[#3A5380] rounded-lg p-6 hover:shadow-lg transition-shadow animate-fade-in" style={{ animationDelay: "0.1s" }}>
+            <Link to="/docs/icp-configuration" className="bg-[#1B2A4A] border border-[#3A5380] rounded-lg p-6 hover:shadow-lg transition-shadow animate-fade-in hover:border-[#2DD4BF]" style={{ animationDelay: "0.1s" }}>
               <div className="flex items-start mb-4">
                 <div className="w-12 h-12 bg-[#243B67] rounded-full flex items-center justify-center mr-4">
                   <FileText className="w-6 h-6 text-[#2DD4BF]" />
@@ -67,20 +67,20 @@ const Documentation: React.FC = () => {
               <ul className="space-y-3 text-white">
                 <li className="flex items-center">
                   <span className="w-1.5 h-1.5 bg-[#2DD4BF] rounded-full mr-2"></span>
-                  <a href="#" className="hover:text-[#2DD4BF] transition-colors">Industry selection</a>
+                  <span className="hover:text-[#2DD4BF] transition-colors">Industry selection</span>
                 </li>
                 <li className="flex items-center">
                   <span className="w-1.5 h-1.5 bg-[#2DD4BF] rounded-full mr-2"></span>
-                  <a href="#" className="hover:text-[#2DD4BF] transition-colors">Company size targeting</a>
+                  <span className="hover:text-[#2DD4BF] transition-colors">Company size targeting</span>
                 </li>
                 <li className="flex items-center">
                   <span className="w-1.5 h-1.5 bg-[#2DD4BF] rounded-full mr-2"></span>
-                  <a href="#" className="hover:text-[#2DD4BF] transition-colors">Revenue thresholds</a>
+                  <span className="hover:text-[#2DD4BF] transition-colors">Revenue thresholds</span>
                 </li>
               </ul>
-            </div>
+            </Link>
 
-            <div className="bg-[#1B2A4A] border border-[#3A5380] rounded-lg p-6 hover:shadow-lg transition-shadow animate-fade-in" style={{ animationDelay: "0.2s" }}>
+            <Link to="/docs/lead-automation" className="bg-[#1B2A4A] border border-[#3A5380] rounded-lg p-6 hover:shadow-lg transition-shadow animate-fade-in hover:border-[#2DD4BF]" style={{ animationDelay: "0.2s" }}>
               <div className="flex items-start mb-4">
                 <div className="w-12 h-12 bg-[#243B67] rounded-full flex items-center justify-center mr-4">
                   <HelpCircle className="w-6 h-6 text-[#2DD4BF]" />
@@ -93,20 +93,20 @@ const Documentation: React.FC = () => {
               <ul className="space-y-3 text-white">
                 <li className="flex items-center">
                   <span className="w-1.5 h-1.5 bg-[#2DD4BF] rounded-full mr-2"></span>
-                  <a href="#" className="hover:text-[#2DD4BF] transition-colors">Campaign setup</a>
+                  <span className="hover:text-[#2DD4BF] transition-colors">Campaign setup</span>
                 </li>
                 <li className="flex items-center">
                   <span className="w-1.5 h-1.5 bg-[#2DD4BF] rounded-full mr-2"></span>
-                  <a href="#" className="hover:text-[#2DD4BF] transition-colors">Lead scoring</a>
+                  <span className="hover:text-[#2DD4BF] transition-colors">Lead scoring</span>
                 </li>
                 <li className="flex items-center">
                   <span className="w-1.5 h-1.5 bg-[#2DD4BF] rounded-full mr-2"></span>
-                  <a href="#" className="hover:text-[#2DD4BF] transition-colors">Automation workflows</a>
+                  <span className="hover:text-[#2DD4BF] transition-colors">Automation workflows</span>
                 </li>
               </ul>
-            </div>
+            </Link>
 
-            <div className="bg-[#1B2A4A] border border-[#3A5380] rounded-lg p-6 hover:shadow-lg transition-shadow animate-fade-in" style={{ animationDelay: "0.3s" }}>
+            <Link to="/docs/api-reference" className="bg-[#1B2A4A] border border-[#3A5380] rounded-lg p-6 hover:shadow-lg transition-shadow animate-fade-in hover:border-[#2DD4BF]" style={{ animationDelay: "0.3s" }}>
               <div className="flex items-start mb-4">
                 <div className="w-12 h-12 bg-[#243B67] rounded-full flex items-center justify-center mr-4">
                   <Info className="w-6 h-6 text-[#2DD4BF]" />
@@ -119,18 +119,18 @@ const Documentation: React.FC = () => {
               <ul className="space-y-3 text-white">
                 <li className="flex items-center">
                   <span className="w-1.5 h-1.5 bg-[#2DD4BF] rounded-full mr-2"></span>
-                  <a href="#" className="hover:text-[#2DD4BF] transition-colors">REST API endpoints</a>
+                  <span className="hover:text-[#2DD4BF] transition-colors">REST API endpoints</span>
                 </li>
                 <li className="flex items-center">
                   <span className="w-1.5 h-1.5 bg-[#2DD4BF] rounded-full mr-2"></span>
-                  <a href="#" className="hover:text-[#2DD4BF] transition-colors">Authentication</a>
+                  <span className="hover:text-[#2DD4BF] transition-colors">Authentication</span>
                 </li>
                 <li className="flex items-center">
                   <span className="w-1.5 h-1.5 bg-[#2DD4BF] rounded-full mr-2"></span>
-                  <a href="#" className="hover:text-[#2DD4BF] transition-colors">Webhooks</a>
+                  <span className="hover:text-[#2DD4BF] transition-colors">Webhooks</span>
                 </li>
               </ul>
-            </div>
+            </Link>
           </div>
 
           <div className="mt-10 p-6 bg-[#243B67] rounded-lg border border-[#3A5380] animate-fade-in" style={{ animationDelay: "0.4s" }}>
