@@ -6,6 +6,7 @@ import { Sliders, BarChart3, ExternalLink, Save } from "lucide-react";
 import DashboardContainer from "@/components/layout/DashboardContainer";
 import LeadAutomation from "@/components/features/LeadAutomation";
 import ICPConfiguration from "@/components/features/ICPConfiguration";
+import { Link } from "react-router-dom";
 
 const LeadAutomationAndIcpConfiguration: React.FC = () => {
   const [activeSection, setActiveSection] = useState<'icp' | 'lead'>('icp');
@@ -53,10 +54,10 @@ const LeadAutomationAndIcpConfiguration: React.FC = () => {
             <h3 className="text-sm uppercase text-[#94A3B8] font-medium mb-3">Quick Actions</h3>
             
             <div className="space-y-2">
-              <a href="#" className="flex items-center p-3 rounded-md text-white hover:bg-[#243B67] transition-colors">
+              <Link to="/documentation" className="flex items-center p-3 rounded-md text-white hover:bg-[#243B67] transition-colors">
                 <ExternalLink className="w-5 h-5 mr-3 text-[#94A3B8]" />
                 <span>Documentation</span>
-              </a>
+              </Link>
             </div>
           </div>
           
