@@ -1,4 +1,6 @@
 
+"use client";
+
 import React from "react";
 import { Sliders, BarChart3, ExternalLink, Save } from "lucide-react";
 import DashboardContainer from "@/components/layout/DashboardContainer";

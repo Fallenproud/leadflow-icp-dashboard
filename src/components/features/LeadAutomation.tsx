@@ -1,4 +1,6 @@
 
+"use client";
+
 import React, { useState } from "react";
 import { Search, Briefcase, Hash } from "lucide-react";
 import CardContainer from "@/components/layout/CardContainer";
@@ -113,6 +115,8 @@ const LeadAutomation: React.FC = () => {
       title="Lead Automation" 
       subtitle="Configure and start your lead generation automation"
       animationDelay="delay-100"
+      imageUrl="https://picsum.photos/id/28/200/200"
+      imageAlt="Lead Generation Automation"
     >
       <form onSubmit={handleSubmit}>
         <FormInput

@@ -1,6 +1,9 @@
 
+"use client";
+
 import React from "react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 interface CardContainerProps {
   className?: string;
@@ -8,6 +11,8 @@ interface CardContainerProps {
   title?: string;
   subtitle?: string;
   animationDelay?: string;
+  imageUrl?: string;
+  imageAlt?: string;
 }
 
 const CardContainer: React.FC<CardContainerProps> = ({
@@ -16,13 +21,26 @@ const CardContainer: React.FC<CardContainerProps> = ({
   title,
   subtitle,
   animationDelay = "",
+  imageUrl,
+  imageAlt = "Illustration",
 }) => {
   return (
     <div className={cn(
-      "card-container slide-up", 
+      "card-container slide-up relative overflow-hidden", 
       animationDelay,
       className
     )}>
+      {imageUrl && (
+        <div className="absolute right-0 top-0 h-32 w-32 opacity-15 pointer-events-none">
+          <Image 
+            src={imageUrl}
+            alt={imageAlt}
+            width={128}
+            height={128}
+            className="object-cover"
+          />
+        </div>
+      )}
       {title && (
         <div className="mb-6">
           <h2 className="text-xl font-semibold text-white">{title}</h2>

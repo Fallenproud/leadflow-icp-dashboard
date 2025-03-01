@@ -1,4 +1,6 @@
 
+"use client";
+
 import React, { useState } from "react";
 import { Building, DollarSign, MapPin, Users } from "lucide-react";
 import CardContainer from "@/components/layout/CardContainer";
@@ -120,6 +122,8 @@ const ICPConfiguration: React.FC = () => {
       title="ICP Configuration" 
       subtitle="Define your Ideal Customer Profile for targeted lead generation"
       animationDelay="delay-200"
+      imageUrl="https://picsum.photos/id/180/200/200"
+      imageAlt="ICP Configuration"
     >
       <form onSubmit={handleSubmit}>
         <FormInput
