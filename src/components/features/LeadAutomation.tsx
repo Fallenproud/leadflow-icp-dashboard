@@ -86,6 +86,7 @@ const LeadAutomation: React.FC = () => {
     setIsSubmitting(true);
     
     try {
+      // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1500));
       
       toast.success("Lead automation started successfully", {
@@ -165,9 +166,9 @@ const LeadAutomation: React.FC = () => {
             type="submit" 
             className="w-full"
             size="lg"
-            disabled={isSubmitting}
+            isLoading={isSubmitting}
           >
-            {isSubmitting ? "Starting..." : "Start Automation"}
+            Start Automation
           </Button>
         </div>
       </form>

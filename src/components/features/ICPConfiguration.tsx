@@ -92,6 +92,7 @@ const ICPConfiguration: React.FC = () => {
     setIsSubmitting(true);
     
     try {
+      // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1500));
       
       toast.success("ICP search started successfully", {
@@ -184,9 +185,9 @@ const ICPConfiguration: React.FC = () => {
             type="submit" 
             className="w-full" 
             size="lg"
-            disabled={isSubmitting}
+            isLoading={isSubmitting}
           >
-            {isSubmitting ? "Starting..." : "Start ICP Search"}
+            Start ICP Search
           </Button>
         </div>
       </form>
