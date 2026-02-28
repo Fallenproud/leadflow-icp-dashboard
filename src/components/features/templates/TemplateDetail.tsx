@@ -16,8 +16,8 @@ const TemplateDetail: React.FC = () => {
   useEffect(() => {
     if (!id) return;
     
-    const fetchTemplate = () => {
-      const fetchedTemplate = getTemplateById(id);
+    const fetchTemplate = async () => {
+      const fetchedTemplate = await getTemplateById(id);
       if (!fetchedTemplate) {
         toast.error("Template not found");
         navigate("/lead-automation-and-icp-configuration/templates");
@@ -31,11 +31,11 @@ const TemplateDetail: React.FC = () => {
     fetchTemplate();
   }, [id, navigate]);
 
-  const handleDelete = () => {
+  const handleDelete = async () => {
     if (!template) return;
     
     if (window.confirm("Are you sure you want to delete this template?")) {
-      deleteTemplate(template.id);
+      await deleteTemplate(template.id);
       toast.success("Template deleted");
       navigate("/lead-automation-and-icp-configuration/templates");
     }

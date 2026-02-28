@@ -16,8 +16,8 @@ const TemplateEdit: React.FC = () => {
   useEffect(() => {
     if (!id) return;
     
-    const fetchTemplate = () => {
-      const template = getTemplateById(id);
+    const fetchTemplate = async () => {
+      const template = await getTemplateById(id);
       if (!template) {
         toast.error("Template not found");
         navigate("/lead-automation-and-icp-configuration/templates");
