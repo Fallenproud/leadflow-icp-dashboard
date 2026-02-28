@@ -114,10 +114,10 @@ const TemplateForm: React.FC<TemplateFormProps> = ({
     
     try {
       if (isEditing && templateId) {
-        updateTemplate(templateId, formData);
+        await updateTemplate(templateId, formData);
         toast.success("Template updated successfully");
       } else {
-        createTemplate(formData);
+        await createTemplate(formData);
         toast.success("Template created successfully");
       }
       

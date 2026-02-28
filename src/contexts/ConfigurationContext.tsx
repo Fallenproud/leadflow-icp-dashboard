@@ -46,22 +46,24 @@ export const ConfigurationProvider: React.FC<{ children: ReactNode }> = ({ child
   const [lastSaved, setLastSaved] = useState<string | null>(null);
   const [isConfigSaving, setIsConfigSaving] = useState<boolean>(false);
 
-  // Load saved configuration on mount
   useEffect(() => {
-    const savedICP = loadICPConfiguration();
-    if (savedICP) {
-      setICPData(savedICP);
-    }
+    const loadConfig = async () => {
+      const savedICP = await loadICPConfiguration();
+      if (savedICP) {
+        setICPData(savedICP);
+      }
 
-    const savedLead = loadLeadAutomationConfiguration();
-    if (savedLead) {
-      setLeadData(savedLead);
-    }
+      const savedLead = await loadLeadAutomationConfiguration();
+      if (savedLead) {
+        setLeadData(savedLead);
+      }
 
-    const timestamp = getLastSavedTimestamp();
-    if (timestamp) {
-      setLastSaved(timestamp);
-    }
+      const timestamp = await getLastSavedTimestamp();
+      if (timestamp) {
+        setLastSaved(timestamp);
+      }
+    };
+    loadConfig();
   }, []);
 
   // Update ICP data
@@ -79,11 +81,8 @@ export const ConfigurationProvider: React.FC<{ children: ReactNode }> = ({ child
     setIsConfigSaving(true);
     
     try {
-      // Simulate network delay for visual feedback
-      await new Promise(resolve => setTimeout(resolve, 800));
-      
-      saveConfiguration(icpData, leadData);
-      const timestamp = getLastSavedTimestamp();
+      await saveConfiguration(icpData, leadData);
+      const timestamp = await getLastSavedTimestamp();
       setLastSaved(timestamp);
       
       toast.success("Configuration saved successfully", {

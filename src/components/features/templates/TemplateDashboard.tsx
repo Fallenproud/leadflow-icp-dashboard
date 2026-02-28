@@ -14,14 +14,14 @@ const TemplateDashboard: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>("all");
 
   useEffect(() => {
-    // Initialize with mock data if empty
-    initializeTemplatesIfEmpty();
-    
-    // Load templates from localStorage
-    const loadedTemplates = getTemplates();
-    setTemplates(loadedTemplates);
-    setFilteredTemplates(loadedTemplates);
-    setIsLoading(false);
+    const loadData = async () => {
+      await initializeTemplatesIfEmpty();
+      const loadedTemplates = await getTemplates();
+      setTemplates(loadedTemplates);
+      setFilteredTemplates(loadedTemplates);
+      setIsLoading(false);
+    };
+    loadData();
   }, []);
 
   useEffect(() => {

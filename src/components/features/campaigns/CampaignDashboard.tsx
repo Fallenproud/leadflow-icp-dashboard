@@ -12,13 +12,13 @@ const CampaignDashboard: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Initialize with mock data if empty
-    initializeCampaignsIfEmpty();
-    
-    // Load campaigns from localStorage
-    const loadedCampaigns = getCampaigns();
-    setCampaigns(loadedCampaigns);
-    setIsLoading(false);
+    const loadData = async () => {
+      await initializeCampaignsIfEmpty();
+      const loadedCampaigns = await getCampaigns();
+      setCampaigns(loadedCampaigns);
+      setIsLoading(false);
+    };
+    loadData();
   }, []);
 
   // Calculate campaign statistics

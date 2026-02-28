@@ -16,8 +16,8 @@ const CampaignDetail: React.FC = () => {
   useEffect(() => {
     if (!id) return;
     
-    const fetchCampaign = () => {
-      const fetchedCampaign = getCampaignById(id);
+    const fetchCampaign = async () => {
+      const fetchedCampaign = await getCampaignById(id);
       if (!fetchedCampaign) {
         toast.error("Campaign not found");
         navigate("/lead-automation-and-icp-configuration/campaigns");
@@ -31,23 +31,22 @@ const CampaignDetail: React.FC = () => {
     fetchCampaign();
   }, [id, navigate]);
 
-  const handleDelete = () => {
+  const handleDelete = async () => {
     if (!campaign) return;
     
     if (window.confirm("Are you sure you want to delete this campaign?")) {
-      deleteCampaign(campaign.id);
+      await deleteCampaign(campaign.id);
       toast.success("Campaign deleted");
       navigate("/lead-automation-and-icp-configuration/campaigns");
     }
   };
 
-  const handleStatusChange = (newStatus: 'active' | 'paused') => {
+  const handleStatusChange = async (newStatus: 'active' | 'paused') => {
     if (!campaign) return;
     
-    updateCampaignStatus(campaign.id, newStatus);
+    await updateCampaignStatus(campaign.id, newStatus);
     toast.success(`Campaign ${newStatus === 'active' ? 'activated' : 'paused'}`);
     
-    // Update the local state
     setCampaign((prev) => {
       if (!prev) return null;
       return { ...prev, status: newStatus };

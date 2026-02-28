@@ -126,10 +126,10 @@ const CampaignForm: React.FC<CampaignFormProps> = ({
     
     try {
       if (isEditing && campaignId) {
-        updateCampaign(campaignId, formData);
+        await updateCampaign(campaignId, formData);
         toast.success("Campaign updated successfully");
       } else {
-        createCampaign(formData);
+        await createCampaign(formData);
         toast.success("Campaign created successfully");
       }
       

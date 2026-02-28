@@ -16,8 +16,8 @@ const CampaignEdit: React.FC = () => {
   useEffect(() => {
     if (!id) return;
     
-    const fetchCampaign = () => {
-      const campaign = getCampaignById(id);
+    const fetchCampaign = async () => {
+      const campaign = await getCampaignById(id);
       if (!campaign) {
         toast.error("Campaign not found");
         navigate("/lead-automation-and-icp-configuration/campaigns");

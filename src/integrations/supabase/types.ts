@@ -14,7 +14,168 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      campaigns: {
+        Row: {
+          created_at: string
+          description: string
+          id: string
+          messaging_subject: string
+          messaging_template: string
+          metrics_converted: number
+          metrics_opened: number
+          metrics_responded: number
+          metrics_sent: number
+          name: string
+          schedule_end_date: string | null
+          schedule_frequency: string
+          schedule_start_date: string | null
+          status: string
+          target_company_size_max: number
+          target_company_size_min: number
+          target_industries: string[]
+          target_locations: string[]
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string
+          id?: string
+          messaging_subject?: string
+          messaging_template?: string
+          metrics_converted?: number
+          metrics_opened?: number
+          metrics_responded?: number
+          metrics_sent?: number
+          name: string
+          schedule_end_date?: string | null
+          schedule_frequency?: string
+          schedule_start_date?: string | null
+          status?: string
+          target_company_size_max?: number
+          target_company_size_min?: number
+          target_industries?: string[]
+          target_locations?: string[]
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          id?: string
+          messaging_subject?: string
+          messaging_template?: string
+          metrics_converted?: number
+          metrics_opened?: number
+          metrics_responded?: number
+          metrics_sent?: number
+          name?: string
+          schedule_end_date?: string | null
+          schedule_frequency?: string
+          schedule_start_date?: string | null
+          status?: string
+          target_company_size_max?: number
+          target_company_size_min?: number
+          target_industries?: string[]
+          target_locations?: string[]
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      icp_configurations: {
+        Row: {
+          annual_revenue: string
+          company_size: string
+          created_at: string
+          id: string
+          target_industries: string
+          target_job_titles: string
+          target_locations: string
+          updated_at: string
+        }
+        Insert: {
+          annual_revenue?: string
+          company_size?: string
+          created_at?: string
+          id?: string
+          target_industries?: string
+          target_job_titles?: string
+          target_locations?: string
+          updated_at?: string
+        }
+        Update: {
+          annual_revenue?: string
+          company_size?: string
+          created_at?: string
+          id?: string
+          target_industries?: string
+          target_job_titles?: string
+          target_locations?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      lead_automation_configurations: {
+        Row: {
+          campaign_id: string
+          created_at: string
+          id: string
+          industry: string
+          search_url: string
+          updated_at: string
+          workspace: string
+        }
+        Insert: {
+          campaign_id?: string
+          created_at?: string
+          id?: string
+          industry?: string
+          search_url?: string
+          updated_at?: string
+          workspace?: string
+        }
+        Update: {
+          campaign_id?: string
+          created_at?: string
+          id?: string
+          industry?: string
+          search_url?: string
+          updated_at?: string
+          workspace?: string
+        }
+        Relationships: []
+      }
+      templates: {
+        Row: {
+          category: string
+          content: string
+          created_at: string
+          id: string
+          name: string
+          subject: string | null
+          tags: string[]
+          updated_at: string
+        }
+        Insert: {
+          category?: string
+          content?: string
+          created_at?: string
+          id?: string
+          name: string
+          subject?: string | null
+          tags?: string[]
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          content?: string
+          created_at?: string
+          id?: string
+          name?: string
+          subject?: string | null
+          tags?: string[]
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
